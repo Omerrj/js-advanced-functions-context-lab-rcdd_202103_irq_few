@@ -15,7 +15,7 @@ const createEmployeeRecords = (employeeRowData)=>
      employeeRowData.map((row)=>createEmployeeRecord(row))
 
 
-let createTimeInEvent = function(dateStamp){
+const createTimeInEvent = function(dateStamp){
     let [date, hour] = dateStamp.split(' ')
 
     this.timeInEvents.push({
@@ -27,8 +27,8 @@ let createTimeInEvent = function(dateStamp){
     return this
 }
 
-let createTimeOutEvent = function(dateStamp){
-    let [date, hour] = dateStamp.split(' ')
+const createTimeOutEvent = function(dateStamp){
+    const [date, hour] = dateStamp.split(' ')
 
     this.timeOutEvents.push({
         type: "TimeOut",
@@ -39,7 +39,7 @@ let createTimeOutEvent = function(dateStamp){
     return this
 }
 
-let hoursWorkedOnDate = function(soughtDate){
+const hoursWorkedOnDate = function(soughtDate){
     let inEvent = this.timeInEvents.find(function(e){
         return e.date === soughtDate
     })
