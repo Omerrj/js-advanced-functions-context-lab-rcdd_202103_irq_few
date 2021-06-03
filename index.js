@@ -1,21 +1,21 @@
 /* Your Code Here */
 
-let createEmployeeRecord = function(row){
-    return {
+const createEmployeeRecord = (row)=>
+     ({
         firstName: row[0],
         familyName: row[1],
         title: row[2],
         payPerHour: row[3],
         timeInEvents: [],
         timeOutEvents: []
-    }
-}
-
-let createEmployeeRecords = function(employeeRowData) {
-    return employeeRowData.map(function(row){
-        return createEmployeeRecord(row)
     })
-}
+
+
+const createEmployeeRecords = (employeeRowData)=> 
+     employeeRowData.map((row)=>
+        return createEmployeeRecord(row)
+    )
+
 
 let createTimeInEvent = function(dateStamp){
     let [date, hour] = dateStamp.split(' ')
