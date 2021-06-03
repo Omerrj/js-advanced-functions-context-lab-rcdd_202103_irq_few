@@ -12,9 +12,7 @@ const createEmployeeRecord = (row)=>
 
 
 const createEmployeeRecords = (employeeRowData)=> 
-     employeeRowData.map((row)=>
-        return createEmployeeRecord(row)
-    )
+     employeeRowData.map((row)=>createEmployeeRecord(row))
 
 
 let createTimeInEvent = function(dateStamp){
