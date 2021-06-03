@@ -40,24 +40,24 @@ const createTimeOutEvent = function(dateStamp){
 }
 
 const hoursWorkedOnDate = function(soughtDate){
-    let inEvent = this.timeInEvents.find(function(e){
+    const inEvent = this.timeInEvents.find(function(e){
         return e.date === soughtDate
     })
 
-    let outEvent = this.timeOutEvents.find(function(e){
+    const outEvent = this.timeOutEvents.find(function(e){
         return e.date === soughtDate
     })
 
     return (outEvent.hour - inEvent.hour) / 100
 }
 
-let wagesEarnedOnDate = function(dateSought){
+const wagesEarnedOnDate = function(dateSought){
     let rawWage = hoursWorkedOnDate.call(this, dateSought)
         * this.payPerHour
     return parseFloat(rawWage.toString())
 }
 
-let allWagesFor = function(){
+const allWagesFor = function(){
     let eligibleDates = this.timeInEvents.map(function(e){
         return e.date
     })
@@ -69,14 +69,10 @@ let allWagesFor = function(){
     return payable
 }
 
-let findEmployeeByFirstName = function(srcArray, firstName) {
-  return srcArray.find(function(rec){
-    return rec.firstName === firstName
-  })
-}
+const findEmployeeByFirstName = (srcArray, firstName)=> 
+ srcArray.find((rec)=>rec.firstName === firstName)
 
-let calculatePayroll = function(arrayOfEmployeeRecords){
-    return arrayOfEmployeeRecords.reduce(function(memo, rec){
-        return memo + allWagesFor.call(rec)
-    }, 0)
-}
+
+const calculatePayroll = (arrayOfEmployeeRecords)=>
+     arrayOfEmployeeRecords.reduce((memo, rec)=>
+         memo + allWagesFor.call(rec), 0)
